@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func lengthOfLastWord(s string) int {
 	if len(s) == 0 {
 		return 0

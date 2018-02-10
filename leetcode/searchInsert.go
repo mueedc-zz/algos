@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func searchInsert(nums []int, target int) int {
 	low := 0
 	high := len(nums)
