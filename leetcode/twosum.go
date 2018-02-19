@@ -4,7 +4,7 @@ import "sort"
 
 func TwoSum(nums []int, target int) []int {
 	indexs := make([]int, 2)
-	hash := map[int]int{}
+	hash := make(map[int]int)
 
 	for i := range nums {
 		hash[target-nums[i]] = i
