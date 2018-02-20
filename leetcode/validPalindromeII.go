@@ -39,3 +39,29 @@ func validPalindrome(s string) bool {
 	}
 	return true
 }
+
+// Alternate Solution using helper function
+// func validPalindrome(s string) bool {
+// 	left, right := 0, len(s)-1
+// 	for left < right {
+// 		if string(s[left]) != string(s[right]) {
+// 			return isPalindrome(s, left+1, right) || isPalindrome(s, left, right-1)
+// 		}
+// 		left++
+// 		right--
+// 	}
+// 	return true
+// }
+
+// func isPalindrome(s string, left int, right int) bool {
+// 	for left < right {
+// 		if string(s[left]) == string(s[right]) {
+// 			left++
+// 			right--
+// 		} else {
+// 			return false
+// 		}
+
+// 	}
+// 	return true
+// }
