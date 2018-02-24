@@ -13,11 +13,11 @@ var levelOrder = function(root) {
     if (!root) return []
     
     const queue = []
+
     function search (root, level) {
         if (root) {
             if (queue.length < level) queue.push([])
-            let temp = queue[level-1]
-            temp.push(root.val)
+            queue[level-1].push(root.val)
             search(root.left, level+1)
             search(root.right, level+1)
         } else return
