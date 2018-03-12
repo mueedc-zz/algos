@@ -3,7 +3,7 @@ package algoexpert
 import "sort"
 
 // incase of large array, sort array and use binary search
-// O(n log(n) time | O(1) space
+// O(n log(n)) time | O(1) space
 func TwoNumberSum(array []int, target int) []int {
 	sort.Ints(array)
 	left, right := 0, len(array)-1
