@@ -1,34 +1,25 @@
-package leetcode
+package algoexpert
 
 import "sort"
 
-func threeSum(nums []int) [][]int {
-	sort.Ints(nums)
-	triplets := make([][]int, 0)
-	for i := 0; i < len(nums)-2; i++ {
-		low, high, target := i+1, len(nums)-1, -nums[i]
-		for low < high {
-			sum := nums[low] + nums[high]
-			switch {
-			case sum < target:
-				low++
-			case sum > target:
-				high--
-			default:
-				triplets = append(triplets, []int{nums[i], nums[low], nums[high]})
-				for low+1 < high && nums[low] == nums[low+1] {
-					low++
-				}
-				for high-1 > low && nums[high] == nums[high-1] {
-					high--
-				}
-				low++
-				high--
+// O(n^2) time | O(n) space
+func ThreeNumberSum(array []int, target int) [][]int {
+	sort.Ints(array)
+	triple := [][]int{}
+	for i := 0; i < len(array)-2; i++ {
+		left, right := i+1, len(array)-1
+		for left < right {
+			currentSum := array[i] + array[left] + array[right]
+			if currentSum == target {
+				triple = append(triple, []int{array[i], array[left], array[right]})
+				left++
+				right--
+			} else if currentSum > target {
+				right--
+			} else if currentSum < target {
+				left++
 			}
 		}
-		for i+1 < len(nums) && nums[i] == nums[i+1] {
-			i++
-		}
 	}
-	return triplets
+	return triple
 }
